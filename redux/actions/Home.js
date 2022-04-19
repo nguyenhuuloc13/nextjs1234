@@ -1,6 +1,6 @@
 import { actionType } from "../contants/Home";
 
-export function getCourse(payload) {
+export function getCourses(payload) {
   return {
     type: actionType.GET_COURSES,
     payload,

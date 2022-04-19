@@ -3,7 +3,7 @@ import api from "../../config/api";
 import { getCoursesFail, getCoursesSucess, } from "../actions/Home";
 import { actionType } from "../contants/Home";
 
-function* getIt(action) {
+function* getCourses(action) {
   try {
     const response = yield call(() => api.get("/courses"));
     yield put(getCoursesSucess(response?.data?.datas?.data));
@@ -13,7 +13,7 @@ function* getIt(action) {
 }
 
 function* HomeSaga() {
-  yield all([takeEvery(actionType.GET_COURSES, getIt)]);
+  yield all([takeEvery(actionType.GET_COURSES, getCourses)]);
 }
 
 export default HomeSaga;
